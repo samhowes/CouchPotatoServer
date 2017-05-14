@@ -288,9 +288,9 @@ class MovieSearcher(SearcherBase, MovieTypeBase):
             return False
 
         # File to small
-        if nzb['size'] and tryInt(preferred_quality['size_min']) > tryInt(nzb['size']):
-            log.info2('Wrong: "%s" is too small to be %s. %sMB instead of the minimal of %sMB.', (nzb['name'], preferred_quality['label'], nzb['size'], preferred_quality['size_min']))
-            return False
+        # if nzb['size'] and tryInt(preferred_quality['size_min']) > tryInt(nzb['size']):
+        #     log.info2('Wrong: "%s" is too small to be %s. %sMB instead of the minimal of %sMB.', (nzb['name'], preferred_quality['label'], nzb['size'], preferred_quality['size_min']))
+        #     return False
 
         # File to large
         if nzb['size'] and tryInt(preferred_quality['size_max']) < tryInt(nzb['size']):
@@ -395,7 +395,7 @@ class MovieSearcher(SearcherBase, MovieTypeBase):
                 self.single(media, manual = manual, force_download = force_download)
 
                 return True
-            
+
             return False
         except:
             log.error('Failed searching for next release: %s', traceback.format_exc())

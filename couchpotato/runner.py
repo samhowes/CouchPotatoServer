@@ -174,7 +174,7 @@ def runCouchPotato(options, base_path, args, data_dir = None, log_dir = None, En
 
     # Determine debug
     debug = options.debug or Env.setting('debug', default = False, type = 'bool')
-    Env.set('debug', debug)
+    Env.set('debug', True)
 
     # Development
     development = Env.setting('development', default = False, type = 'bool')
